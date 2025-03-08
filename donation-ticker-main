@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supporter Ticker</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .ticker-container {
+            width: 100%;
+            height: 100px;
+            background: #f8f9fa;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px 0;
+        }
+        .ticker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+        }
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+        .ticker img {
+            width: auto;
+            height: 50px;
+            margin-bottom: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="ticker-container">
+        <div class="ticker" id="ticker">
+            <div class="ticker-item">
+                <img src="https://www.canva.com/design/DAGhG5JxjB0/s-L28VJ2rjMEajwnKavRkQ/view?utm_content=DAGhG5JxjB0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6096fe0626" alt="RT">
+                <span>RT - One-Time Supporter</span>
+            </div>
+            <div class="ticker-item">
+                <img src="https://www.canva.com/design/DAGhHkIX4uY/sx2iVl6jiouDzSH-oCYu-A/view?utm_content=DAGhHkIX4uY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h075c5030ab" alt="SM">
+                <span>SM - Monthly Supporter</span>
+            </div>
+            <div class="ticker-item">
+                <img src="https://www.canva.com/design/DAGhHm4HtOw/74zOvxWf020cq73OLJRwMQ/view?utm_content=DAGhHm4HtOw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h4203602b1f" alt="OC">
+                <span>OC - One-Time Supporter</span>
+            </div>
+            <div class="ticker-item">
+                <img src="https://www.canva.com/design/DAGhHkIX4uY/sx2iVl6jiouDzSH-oCYu-A/view?utm_content=DAGhHkIX4uY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h075c5030ab" alt="RT">
+                <span>RT - Monthly Supporter</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let items = document.querySelectorAll('.ticker-item');
+        let index = 0;
+
+        function showNextItem() {
+            items.forEach(item => item.style.opacity = '0');
+            items[index].style.opacity = '1';
+            index = (index + 1) % items.length;
+        }
+
+        showNextItem();
+        setInterval(showNextItem, 3000);
+    </script>
+</body>
+</html>
